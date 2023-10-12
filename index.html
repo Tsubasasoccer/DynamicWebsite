@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="../dynamicproject/css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Weather app</h1>
+      <div class="search">
+        <div><input type="text" placeholder="enter city name" spellcheck="false">
+          <div class="error">
+          </div>
+        </div>
+        <button><img src="images/search.png"></button>
+      </div>
+
+    </nav>
+ 
+  </header>
+  <div class="main-card">
+    <div class="flex">
+      <div class="weather">
+        <img src="images/rain.png" alt="" class="weather-icon">
+        <h1 class="temp">22°C</h1>
+        <h2 class="city">New York</h2>
+        <div class="details">
+          <div class="col">
+            <img src="images/humidity.png" alt="">
+            <div>
+              <p class="humidity">50%</p>
+              <p>Humidity</p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="images/wind.png" alt="">
+            <div>
+              <p class="wind">15 km/h</p>
+              <p>Wind Speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="days-forecast">
+        <h2>5-Day Forecast</h2>
+        <ul class="weather-cards">
+          <li class="card">
+            <h3 id="day1"></h3>
+            <img src="dots.png" class="imgClass" id="img1">
+            <h6 id="day1Temp"></h6>
+            <h6 id="day1Hum"></h6>
+            <h6 id="day1Wind"></h6>
+            
+          </li>
+          <li class="card">
+            <h3 id="day9"></h3>
+            <img src="dots.png" class="imgClass" id="img9">
+            <h6 id="day9Temp"></h6>
+            <h6 id="day9Hum"></h6>
+            <h6 id="day9Wind"></h6>
+            
+          </li>
+          <li class="card">
+            <h3 id="day17"></h3>
+            <img src="dots.png" class="imgClass" id="img17">
+            <h6 id="day17Temp"></h6>
+            <h6 id="day17Hum"></h6>
+            <h6 id="day17Wind"></h6>
+            
+          </li>
+          <li class="card">
+            <h3 id="day25"></h3>
+            <img src="dots.png" class="imgClass" id="img25">
+            <h6 id="day25Temp"></h6>
+            <h6 id="day25Hum"></h6>
+            <h6 id="day25Wind"></h6>
+            
+          </li>
+          <li class="card">
+            <h3 id="day33"></h3>
+            <img src="dots.png" class="imgClass" id="img33">
+            <h6 id="day33Temp"></h6>
+            <h6 id="day33Hum"></h6>
+            <h6 id="day33Wind"></h6>
+            
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ <script src="./js/style.js"></script> 
+</body>
+</html>
