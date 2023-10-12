@@ -22,14 +22,19 @@ let checkWeather=()=>{
       document.querySelector(".wind").innerHTML=data.wind.speed + "km/h";
       if(data.weather[0].main == "Clouds"){
         weatherIcon.src="./images/clouds.png"
+        document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2xvdWR8ZW58MHwwfDB8fHww&auto=format&fit=crop&w=800&q=60")`
       }else  if(data.weather[0].main=="Clear"){
         weatherIcon.src="./images/clear.png"
+        document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1598965914211-6ec6872593a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHN1bnxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60")`
       }else  if(data.weather[0].main=="Rain"){
         weatherIcon.src="./images/rain.png"
+        document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1438449805896-28a666819a20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHJhaW58ZW58MHwwfDB8fHww&auto=format&fit=crop&w=800&q=60")`
       }else  if(data.weather[0].main=="Drizzle"){
         weatherIcon.src="./images/drizzle.png"
+        document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1576234699886-7eb7f11aecb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZHJpenpsZXxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60")`
       }else  if(data.weather[0].main=="Mist"){
         weatherIcon.src="./images/mist.png"
+        document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWlzdHxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60")`
       }
       document.querySelector(".main-card").style.display="block";
       document.querySelector(".error").innerHTML=""
