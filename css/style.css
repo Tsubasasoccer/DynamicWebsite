@@ -22,14 +22,45 @@ nav{
   height: 100px;
   padding: 0 100px;
 }
+li{
+  list-style: none;
+  font-size: 16px;
+}
 nav h1{
   font-size: 48px;
   color: white;
   font-family: 'Abril Fatface', serif;
 }
+.resentSearch{
+  position: absolute;
+    /* left: 11px; */
+    height: 80px;
+    top: 30px;
+    background-color: #ebfffc;
+    width: 197px;
+    display: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow: scroll;
+}
+.resentSearch h4{
+  font-size: 16px;
+}
+
+.searchHistory i{
+  padding-right: 10px;
+  font-size: 16px;
+}
+.searchHistory p{
+  margin: 3px 0;
+}
+form{
+  width: 100%;
+}
 .search{
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 .search input{
   text-align: center;
@@ -38,9 +69,15 @@ outline:0;
 padding: 5px;
   background-color: #ebfffc;
   color: #555;
-  border-radius: 30px;
+  border-radius: 3px;
   font-size: 18px;
   margin-right: 5px;
+}
+.search:focus-within{
+  border-radius: 3px 3px 0 0;
+}
+.search:focus-within .resentSearch{
+  display: block;
 }
 .search button{
 border:0;
@@ -71,6 +108,13 @@ cursor: pointer;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+.flexItem{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 5px; 
 }
 .weather{
   width: 49%;
