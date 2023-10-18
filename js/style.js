@@ -6,92 +6,6 @@ const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 const weatherCardsDiv = document.querySelector(".weather-cards");
 
-// const itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-// console.log(itemsArray);
-
-// function getItems(){
-//   const item = searchBox
-//   createItem(item)
-// }
-
-// function createItem(item){
-//   itemsArray.push(item.value)
-//   localStorage.setItem('items', JSON.stringify(itemsArray))
-//   location.reload()
-// }
-
-// function displayItems(){
-//   let items = ""
-//   for(let i = 0; i < itemsArray.length; i++){
-//     items += `<div class="flex"><i class="fa-solid fa-clock-rotate-left"></i>
-//     <p>${itemsArray[i]}</p>
-//     </div>`
-//   }
-//   document.querySelector(".searchHistory").innerHTML = items
-
-// }
-// window.onload = function() {
-//   displayItems()
-// };
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   loadSearchHistory();
-// });
-
-// function addKeyword() {
-
-//   const searchTerm = searchBox.value.trim();
-
-//   if (searchTerm !== "") {
-//       // 検索キーワードを検索履歴に追加
-//       addToSearchHistory(searchTerm);
-//       searchBox.value = "";
-//   }
-// };
-// function addToSearchHistory(searchTerm) {
-//   const searchHistory = getSearchHistory();
-//   searchHistory.push(searchTerm);
-//   localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-//   loadSearchHistory();
-// }
-// function loadSearchHistory() {
-//   const searchHistory = getSearchHistory();
-//   let searchHistoryList = document.getElementById("#searchHistory");
-//   searchHistoryList= "";
-
-//   searchHistory.forEach(function (searchTerm) {
-//       const listItem = document.createElement("li");
-//       listItem.textContent = searchTerm;
-//       searchHistoryList.appendChild(listItem);
-//   });
-// }
-
-// // 検索履歴を取得する
-// function getSearchHistory() {
-//   const searchHistory = localStorage.getItem("searchHistory");
-//   return searchHistory ? JSON.parse(searchHistory) : [];
-// }
-// let recentListEl = document.querySelector(".recentList");
-// let inputSubmit = document.getElementById("submit");
-
-// let recentSearch=[];
-// searchBtn.addEventListener("click",(e)=>{
-// e.preventDefault();
-// recentSearch.unshift(searchBox.value)
-// console.log(recentSearch);
-
-// let recentHtmlList =""
-
-// for(let i =0;i<recentSearch.length; i++){
-//   recentHtmlList+=`<div class="recentItem">
-//   <i class="fa-solid fa-clock-rotate-left"></i>
-//   <p>${recentSearch[i]}</p>`
-// }
-
-// recentListEl.innerHTML = recentHtmlList;
-
-// })
-
 function checkWeather() {
   let cityValue = searchBox.value;
   if (cityValue.length == 0) {
@@ -99,8 +13,40 @@ function checkWeather() {
     <p>Please enter a city name</p>`;
     document.querySelector(".main-card").style.display = "none";
   } else {
+    const itemsArray = localStorage.getItem("items")
+      ? JSON.parse(localStorage.getItem("items"))
+      : [];
+    console.log(itemsArray);
+
+
+    const item = searchBox;
+    createItem(item);
+
+    function createItem(item) {
+      if (itemsArray.length >= 3) {
+        itemsArray.shift();
+      }
+      itemsArray.push(item.value);
+      localStorage.setItem("items", JSON.stringify(itemsArray));
+    }
+
+    function displayItems() {
+      let items = "";
+      for (let i = 0; i < itemsArray.length; i++) {
+        items += `<div class="flexItem"><i class="fa-solid fa-clock-rotate-left"></i>
+<p>${itemsArray[i]}</p>
+</div>`;
+      }
+
+      // itemsArray.push(item); // 新しい検索を追加
+
+      // ローカルストレージに保存
+      // saveSearchHistory(itemsArray)
+      document.querySelector(".searchHistory").innerHTML = items;
+    }
+    displayItems();
     // localStorage.clear();  //全データを消去
-    // searchBox.value = "";
+
     fetch(apiUrl + cityValue + `&appid=${apiKey}`)
       .then((resp) => resp.json())
       .then((data) => {
@@ -139,6 +85,7 @@ function checkWeather() {
       <p>City not found</p>`;
         document.querySelector(".main-card").style.display = "none";
         document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1508020268086-b96cf4f4bb2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHN1bnNldHxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60")`;
+        searchBox.value = "";
       });
 
     $.ajax({
@@ -149,15 +96,14 @@ function checkWeather() {
       method: "GET",
       dataType: "json",
       success: function (data) {
+        searchBox.value = "";
         for (i = 0; i < 35; i = i + 8) {
           document.getElementById("day" + (i + 1)).innerHTML =
             data.list[i].dt_txt.split(" ")[0];
-          //Number(1.3450001).toFixed(2); // 1.35
         }
         for (i = 0; i < 35; i = i + 8) {
           document.getElementById("day" + (i + 1) + "Temp").innerHTML =
             Math.round(data.list[i].main.temp - 273.15) + "°C";
-          //Number(1.3450001).toFixed(2); // 1.35
         }
 
         for (i = 0; i < 35; i = i + 8) {
@@ -187,44 +133,8 @@ function checkWeather() {
           }
         }
 
-        const itemsArray = localStorage.getItem("items")
-          ? JSON.parse(localStorage.getItem("items"))
-          : [];
-        console.log(itemsArray);
 
-        // function getItems(){
-        const item = searchBox;
-        createItem(item);
-        // }
 
-        function createItem(item) {
-          // location.reload()
-          if (itemsArray.length >= 3) {
-            itemsArray.shift(); // 古いものを削除
-          }
-          itemsArray.push(item.value);
-          localStorage.setItem("items", JSON.stringify(itemsArray));
-        }
-
-        function displayItems() {
-          let items = "";
-          for (let i = 0; i < itemsArray.length; i++) {
-            items += `<div class="flexItem"><i class="fa-solid fa-clock-rotate-left"></i>
-    <p>${itemsArray[i]}</p>
-    </div>`;
-          }
-
-          // itemsArray.push(item); // 新しい検索を追加
-
-          // ローカルストレージに保存
-          // saveSearchHistory(itemsArray)
-          document.querySelector(".searchHistory").innerHTML = items;
-        }
-        // window.onload = function() {
-        displayItems();
-        // };
-        // getItems();
-        // searchBox.value = "";
       },
       error: function (error) {
         document.querySelector(".error").innerHTML = `
@@ -235,5 +145,5 @@ function checkWeather() {
   }
 }
 
+
 searchBtn.addEventListener("click", checkWeather);
-// searchBtn.addEventListener("click", getItems());
