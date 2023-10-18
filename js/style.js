@@ -104,12 +104,17 @@ function checkWeather() {
     fetch(apiUrl + cityValue + `&appid=${apiKey}`)
       .then((resp) => resp.json())
       .then((data) => {
-        document.querySelector(".city").innerHTML = data.name;
-        document.querySelector(".temp").innerHTML =
-          Math.round(data.main.temp) + "°C";
-        document.querySelector(".humidity").innerHTML =
-          data.main.humidity + "%";
-        document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+        // document.querySelector(".city").innerHTML = data.name;
+        $(".city").html(data.name);
+        $(".temp").html(Math.round(data.main.temp) + "°C");
+        $(".humidity").html(data.main.humidity + "%");
+        $(".wind").html(data.wind.speed + "km/h");
+
+        // document.querySelector(".temp").innerHTML =
+        //   Math.round(data.main.temp) + "°C";
+        // document.querySelector(".humidity").innerHTML =
+        //   data.main.humidity + "%";
+        // document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
         if (data.weather[0].main == "Clouds") {
           weatherIcon.src = "./images/clouds.png";
           document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2xvdWR8ZW58MHwwfDB8fHww&auto=format&fit=crop&w=800&q=60")`;
@@ -186,22 +191,19 @@ function checkWeather() {
           ? JSON.parse(localStorage.getItem("items"))
           : [];
         console.log(itemsArray);
-       
+
         // function getItems(){
         const item = searchBox;
         createItem(item);
         // }
 
         function createItem(item) {
-          
           // location.reload()
           if (itemsArray.length >= 3) {
             itemsArray.shift(); // 古いものを削除
           }
-            itemsArray.push(item.value);
+          itemsArray.push(item.value);
           localStorage.setItem("items", JSON.stringify(itemsArray));
-
-          
         }
 
         function displayItems() {
