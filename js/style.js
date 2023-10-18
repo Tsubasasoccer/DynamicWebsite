@@ -5,6 +5,7 @@ const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 const weatherCardsDiv = document.querySelector(".weather-cards");
+const resentSearchElements = document.querySelector('.resentSearch');
 
 function checkWeather() {
   let cityValue = searchBox.value;
@@ -12,7 +13,10 @@ function checkWeather() {
     document.querySelector(".error").innerHTML = `
     <p>Please enter a city name</p>`;
     document.querySelector(".main-card").style.display = "none";
+    document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1508020268086-b96cf4f4bb2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHN1bnNldHxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60")`;
+    resentSearchElements.style.display = 'none';
   } else {
+    resentSearchElements.style.display = 'block';
     const itemsArray = localStorage.getItem("items")
       ? JSON.parse(localStorage.getItem("items"))
       : [];
@@ -81,6 +85,7 @@ function checkWeather() {
         document.querySelector(".error").innerHTML = "";
       })
       .catch(() => {
+        resentSearchElements.style.display = 'none';
         document.querySelector(".error").innerHTML = `
       <p>City not found</p>`;
         document.querySelector(".main-card").style.display = "none";
@@ -134,7 +139,7 @@ function checkWeather() {
         }
 
 
-
+searchBox.value = "";
       },
       error: function (error) {
         document.querySelector(".error").innerHTML = `

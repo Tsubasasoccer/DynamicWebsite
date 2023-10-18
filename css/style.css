@@ -76,9 +76,9 @@ padding: 5px;
 .search:focus-within{
   border-radius: 3px 3px 0 0;
 }
-.search:focus-within .resentSearch{
+/* .search:focus-within .resentSearch{
   display: block;
-}
+} */
 .search button{
 border:0;
 outline:0;
