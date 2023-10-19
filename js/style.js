@@ -27,7 +27,7 @@ function checkWeather() {
     createItem(item);
 
     function createItem(item) {
-      if (itemsArray.length >= 3) {
+      if (itemsArray.length >= 5) {
         itemsArray.shift();
       }
       itemsArray.push(item.value);
@@ -37,8 +37,8 @@ function checkWeather() {
     function displayItems() {
       let items = "";
       for (let i = 0; i < itemsArray.length; i++) {
-        items += `<div class="flexItem"><i class="fa-solid fa-clock-rotate-left"></i>
-<p>${itemsArray[i]}</p>
+        items += `<div class="flexItem"><i class="fa-solid fa-clock-rotate-left pr-[10px] text-[16px]"></i>
+<p class="my-[3px]">${itemsArray[i]}</p>
 </div>`;
       }
 

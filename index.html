@@ -6,36 +6,37 @@
   <title>Document</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../dynamicproject/css/style.css">
 </head>
 <body>
   <header>
-    <nav>
-      <h1>Weather app</h1>
-      <div class="search">
-        <form id="submit"><input type="text" placeholder="enter city name" spellcheck="false" class="inputSearch">
+    <nav class="flex justify-between items-center h-[100px] px-[100px]">
+      <h1 class="text-[48px] text-white ">Weather app</h1>
+      <div class="search flex justify-between relative">
+        <form id="submit" class="w-full"><input type="text" placeholder="enter city name" spellcheck="false" class="inputSearch text-center bg-emerald-50 border-0 p-[5px] mr-[5px] text-[18px] rounded-[3px]">
           <div class="error">
           </div>
         </form>
-        <div class="resentSearch">
-          <h4>Recent Search</h4>
+        <div class="resentSearch absolute h-[80px] top-[30px] bg-emerald-50 w-[197px]  p-[10px] overflow-scroll">
+          <h4 class="text-[16px]">Recent Search</h4>
           <ul class="searchHistory">
 
           </ul>
         </div>
-        <button><img src="images/search.png"></button>
+        <button class="bg-emerald-50 rounded-[50%] w-[30px] h-[30px] cursor-pointer"><img class="mx-auto w-[14px]" src="images/search.png"></button>
       </div>
 
     </nav>
  
   </header>
-  <section class="main-card">
-    <div class="flex">
-      <div class="weather">
-        <img src="images/rain.png" alt="" class="weather-icon">
-        <h1 class="temp">22°C</h1>
-        <h2 class="city">New York</h2>
-        <div class="details">
+  <section class="main-card max-w-[80%] text-white text-center pb-[30px] p-[10px] my-[50px] mx-auto rounded-[20px]">
+    <div class="flex justify-between flex-wrap">
+      <div class="weather w-[49%]">
+        <img src="images/rain.png" alt="" class="weather-icon mx-auto mt-[30px] w-[170px]">
+        <h1 class="temp text-[80px] font-medium">22°C</h1>
+        <h2 class="city text-[45px] font-normal mt-[-10px]">New York</h2>
+        <div class="details flex items-center justify-center py-0 px-[20px] mt-[50px]">
           <div class="col">
             <img src="images/humidity.png" alt="">
             <div>
@@ -52,8 +53,8 @@
           </div>
         </div>
       </div>
-      <div class="days-forecast">
-        <h2>5-Day Forecast</h2>
+      <div class="days-forecast w-[49%]">
+        <h2 class="mb-[20px] text-[24px]">5-Day Forecast</h2>
         <ul class="weather-cards">
           <li class="card">
             <h3 id="day1"></h3>
