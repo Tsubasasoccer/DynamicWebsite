@@ -11,8 +11,8 @@
 </head>
 <body>
   <header>
-    <nav class="flex justify-between items-center h-[100px] px-[100px]">
-      <h1 class="text-[48px] text-white ">Weather app</h1>
+    <nav class="flex justify-between items-center h-[80px] md:h-[100px] px-[20px] md:px-[100px]">
+      <h1 class="text-[36px] md:text-[48px] text-white mb-[17px]">Weather app</h1>
       <div class="search flex justify-between relative">
         <form id="submit" class="w-full"><input type="text" placeholder="enter city name" spellcheck="false" class="inputSearch text-center bg-emerald-50 border-0 p-[5px] mr-[5px] text-[18px] rounded-[3px]">
           <div class="error">
@@ -24,19 +24,19 @@
 
           </ul>
         </div>
-        <button class="bg-emerald-50 rounded-[50%] w-[30px] h-[30px] cursor-pointer"><img class="mx-auto w-[14px]" src="images/search.png"></button>
+        <button><a href="#" class="inline-block bg-emerald-50 rounded-[50%] w-[30px] h-[30px] cursor-pointer pt-[6px]"><img class="mx-auto w-[14px]" src="images/search.png"></a></button>
       </div>
 
     </nav>
  
   </header>
-  <section class="main-card max-w-[80%] text-white text-center pb-[30px] p-[10px] my-[50px] mx-auto rounded-[20px]">
-    <div class="flex justify-between flex-wrap">
-      <div class="weather w-[49%]">
-        <img src="images/rain.png" alt="" class="weather-icon mx-auto mt-[30px] w-[170px]">
-        <h1 class="temp text-[80px] font-medium">22°C</h1>
-        <h2 class="city text-[45px] font-normal mt-[-10px]">New York</h2>
-        <div class="details flex items-center justify-center py-0 px-[20px] mt-[50px]">
+  <section class="main-card max-w-[95%] md:max-w-[80%] text-white text-center pb-[30px] p-[10px] my-[50px] mx-auto rounded-[20px]">
+    <div class="md:flex md:justify-between md:flex-wrap ">
+      <div class="weather md:w-[45%]">
+        <img src="images/rain.png" alt="" class="weather-icon mx-auto mt-[10px] md:mt-[30px] w-[150px] md:w-[170px]">
+        <h1 class="temp text-[40px] md:text-[80px] font-medium font-medium">22°C</h1>
+        <h2 class="city text-[30px] md:text-[48px] font-normal mt-[-10px]">New York</h2>
+        <div class="details flex items-center justify-center py-0 px-[20px] mt-[10px] md:mt-[50px]">
           <div class="col">
             <img src="images/humidity.png" alt="">
             <div>
@@ -53,44 +53,44 @@
           </div>
         </div>
       </div>
-      <div class="days-forecast w-[49%]">
-        <h2 class="mb-[20px] text-[24px]">5-Day Forecast</h2>
-        <ul class="weather-cards">
-          <li class="card">
-            <h3 id="day1"></h3>
-            <img src="dots.png" class="imgClass" id="img1">
+      <div class="days-forecast md:w-[54%] md:ma-auto">
+        <h2 class="mt-[10px] md:mt-[0] mb-[10px] md:mb-[20px] text-[24px] md:text-[48px]">5-Day Forecast</h2>
+        <ul class="weather-cards gap-0 md:gap-[20px]">
+          <li class="card rounded-0 md:rounded-[5px]">
+            <h4 id="day1"></h4>
+            <img src="dots.png" class="imgClass mx-auto" id="img1">
             <h6 id="day1Temp"></h6>
             <h6 id="day1Hum"></h6>
             <h6 id="day1Wind"></h6>
             
           </li>
-          <li class="card">
-            <h3 id="day9"></h3>
-            <img src="dots.png" class="imgClass" id="img9">
+          <li class="card rounded-0 md:rounded-[5px]">
+            <h4 id="day9"></h4>
+            <img src="dots.png" class="imgClass mx-auto" id="img9">
             <h6 id="day9Temp"></h6>
             <h6 id="day9Hum"></h6>
             <h6 id="day9Wind"></h6>
             
           </li>
-          <li class="card">
-            <h3 id="day17"></h3>
-            <img src="dots.png" class="imgClass" id="img17">
+          <li class="card rounded-0 md:rounded-[5px]">
+            <h4 id="day17"></h4>
+            <img src="dots.png" class="imgClass mx-auto" id="img17">
             <h6 id="day17Temp"></h6>
             <h6 id="day17Hum"></h6>
             <h6 id="day17Wind"></h6>
             
           </li>
-          <li class="card">
-            <h3 id="day25"></h3>
-            <img src="dots.png" class="imgClass" id="img25">
+          <li class="card rounded-0 md:rounded-[5px]">
+            <h4 id="day25"></h4>
+            <img src="dots.png" class="imgClass mx-auto" id="img25">
             <h6 id="day25Temp"></h6>
             <h6 id="day25Hum"></h6>
             <h6 id="day25Wind"></h6>
             
           </li>
-          <li class="card">
-            <h3 id="day33"></h3>
-            <img src="dots.png" class="imgClass" id="img33">
+          <li class="card rounded-0 md:rounded-[5px]">
+            <h4 id="day33"></h4>
+            <img src="dots.png" class="imgClass mx-auto" id="img33">
             <h6 id="day33Temp"></h6>
             <h6 id="day33Hum"></h6>
             <h6 id="day33Wind"></h6>

@@ -37,7 +37,7 @@ function checkWeather() {
     function displayItems() {
       let items = "";
       for (let i = 0; i < itemsArray.length; i++) {
-        items += `<div class="flexItem"><i class="fa-solid fa-clock-rotate-left pr-[10px] text-[16px]"></i>
+        items += `<div class="flexItem flex flex-wrap justify-left items-center mb-[5px]"><i class="fa-solid fa-clock-rotate-left pr-[10px] text-[16px]"></i>
 <p class="my-[3px]">${itemsArray[i]}</p>
 </div>`;
       }
@@ -58,7 +58,7 @@ function checkWeather() {
         $(".city").html(data.name);
         $(".temp").html(Math.round(data.main.temp) + "°C");
         $(".humidity").html(data.main.humidity + "%");
-        $(".wind").html(data.wind.speed + "km/h");
+        $(".wind").html(data.wind.speed.toPrecision(2) + "km/h");
 
         // document.querySelector(".temp").innerHTML =
         //   Math.round(data.main.temp) + "°C";
@@ -113,7 +113,7 @@ function checkWeather() {
 
         for (i = 0; i < 35; i = i + 8) {
           document.getElementById("day" + (i + 1) + "Wind").innerHTML =
-            data.list[i].wind.speed + "km/h";
+            data.list[i].wind.speed.toPrecision(2) + "km/h";
         }
         for (i = 0; i < 35; i = i + 8) {
           document.getElementById("day" + (i + 1) + "Hum").innerHTML =
