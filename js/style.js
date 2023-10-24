@@ -1,14 +1,17 @@
+// get the api key and url
 const apiKey = "5e50577710e7a40ddc1e2be47b5c60ee";
 const apiUrl =
   "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+  // declare main const
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search a");
 const weatherIcon = document.querySelector(".weather-icon");
 const weatherCardsDiv = document.querySelector(".weather-cards");
 const resentSearchElements = document.querySelector('.resentSearch');
-
+// check the current and weekly weather
 function checkWeather() {
   let cityValue = searchBox.value;
+  // show the error message
   if (cityValue.length == 0) {
     document.querySelector(".error").innerHTML = `
     <p>Please enter a city name</p>`;
@@ -17,6 +20,7 @@ function checkWeather() {
     resentSearchElements.style.display = 'none';
   } else {
     resentSearchElements.style.display = 'block';
+    // local storage for search history
     const itemsArray = localStorage.getItem("items")
       ? JSON.parse(localStorage.getItem("items"))
       : [];
@@ -41,30 +45,20 @@ function checkWeather() {
 <p class="my-[3px]">${itemsArray[i]}</p>
 </div>`;
       }
-
-      // itemsArray.push(item); // 新しい検索を追加
-
-      // ローカルストレージに保存
-      // saveSearchHistory(itemsArray)
       document.querySelector(".searchHistory").innerHTML = items;
     }
     displayItems();
-    // localStorage.clear();  //全データを消去
-
+    // localStorage.clear(); 
+// api for current weather
     fetch(apiUrl + cityValue + `&appid=${apiKey}`)
       .then((resp) => resp.json())
       .then((data) => {
-        // document.querySelector(".city").innerHTML = data.name;
+        // example of jQuery DOM
         $(".city").html(data.name);
         $(".temp").html(Math.round(data.main.temp) + "°C");
         $(".humidity").html(data.main.humidity + "%");
         $(".wind").html(data.wind.speed.toPrecision(2) + "km/h");
-
-        // document.querySelector(".temp").innerHTML =
-        //   Math.round(data.main.temp) + "°C";
-        // document.querySelector(".humidity").innerHTML =
-        //   data.main.humidity + "%";
-        // document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+        // select img according to the weather
         if (data.weather[0].main == "Clouds") {
           weatherIcon.src = "./images/clouds.png";
           document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2xvdWR8ZW58MHwwfDB8fHww&auto=format&fit=crop&w=800&q=60")`;
@@ -81,6 +75,7 @@ function checkWeather() {
           weatherIcon.src = "./images/mist.png";
           document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWlzdHxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60")`;
         }
+        // example of Javascript DOM
         document.querySelector(".main-card").style.display = "block";
         document.querySelector(".error").innerHTML = "";
       })
@@ -92,7 +87,7 @@ function checkWeather() {
         document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1508020268086-b96cf4f4bb2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHN1bnNldHxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60")`;
         searchBox.value = "";
       });
-
+// api for weekly weather
     $.ajax({
       url:
         "https://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -102,6 +97,7 @@ function checkWeather() {
       dataType: "json",
       success: function (data) {
         searchBox.value = "";
+        // show the date from api 
         for (i = 0; i < 35; i = i + 8) {
           document.getElementById("day" + (i + 1)).innerHTML =
             data.list[i].dt_txt.split(" ")[0];
@@ -119,7 +115,6 @@ function checkWeather() {
           document.getElementById("day" + (i + 1) + "Hum").innerHTML =
             data.list[i].main.humidity + "%";
         }
-        //------------------------------------------------------------
 
         //Getting Weather Icons
         for (i = 0; i < 35; i = i + 8) {
@@ -141,6 +136,7 @@ function checkWeather() {
 
 searchBox.value = "";
       },
+      // show the error message
       error: function (error) {
         document.querySelector(".error").innerHTML = `
         <p>City not found</p>`;

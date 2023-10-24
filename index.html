@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../dynamicproject/css/style.css">
 </head>
 <body>
+  <!-- header -->
   <header>
     <nav class="flex justify-between items-center h-[80px] md:h-[100px] px-[20px] md:px-[100px]">
       <h1 class="text-[36px] md:text-[48px] text-white mb-[17px]">Weather app</h1>
@@ -30,8 +31,10 @@
     </nav>
  
   </header>
+  <!-- weather section -->
   <section class="main-card max-w-[95%] md:max-w-[80%] text-white text-center pb-[30px] p-[10px] my-[50px] mx-auto rounded-[20px]">
     <div class="md:flex md:justify-between md:flex-wrap ">
+      <!-- current weather -->
       <div class="weather md:w-[45%]">
         <img src="images/rain.png" alt="" class="weather-icon mx-auto mt-[10px] md:mt-[30px] w-[150px] md:w-[170px]">
         <h1 class="temp text-[40px] md:text-[80px] font-medium font-medium">22°C</h1>
@@ -53,6 +56,7 @@
           </div>
         </div>
       </div>
+      <!-- weekly forecast -->
       <div class="days-forecast md:w-[54%] md:ma-auto">
         <h2 class="mt-[10px] md:mt-[0] mb-[10px] md:mb-[20px] text-[24px] md:text-[48px]">5-Day Forecast</h2>
         <ul class="weather-cards gap-0 md:gap-[20px]">
