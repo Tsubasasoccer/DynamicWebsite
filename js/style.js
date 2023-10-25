@@ -61,13 +61,13 @@ function checkWeather() {
         // select img according to the weather
         if (data.weather[0].main == "Clouds") {
           weatherIcon.src = "./images/clouds.png";
-          document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2xvdWR8ZW58MHwwfDB8fHww&auto=format&fit=crop&w=800&q=60")`;
+          document.body.style.backgroundImage = `url("https://images.unsplash.com/uploads/14122598319144c6eac10/5f8e7ade?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xvdWR5fGVufDB8MHwwfHx8MA%3D%3D")`;
         } else if (data.weather[0].main == "Clear") {
           weatherIcon.src = "./images/clear.png";
-          document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1598965914211-6ec6872593a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHN1bnxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60")`;
+          document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1581205135021-fbad89f942a6?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njh8fHN1bm55fGVufDB8MHwwfHx8MA%3D%3D")`;
         } else if (data.weather[0].main == "Rain") {
           weatherIcon.src = "./images/rain.png";
-          document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1438449805896-28a666819a20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHJhaW58ZW58MHwwfDB8fHww&auto=format&fit=crop&w=800&q=60")`;
+          document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1565065524861-0be4646f450b?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFpbnl8ZW58MHwwfDB8fHww")`;
         } else if (data.weather[0].main == "Drizzle") {
           weatherIcon.src = "./images/drizzle.png";
           document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1576234699886-7eb7f11aecb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZHJpenpsZXxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60")`;
