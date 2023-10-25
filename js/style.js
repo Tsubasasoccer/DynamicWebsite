@@ -16,7 +16,7 @@ function checkWeather() {
     document.querySelector(".error").innerHTML = `
     <p>Please enter a city name</p>`;
     document.querySelector(".main-card").style.display = "none";
-    document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1508020268086-b96cf4f4bb2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHN1bnNldHxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60")`;
+    document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1421284621639-884f4129b61d?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE5fHxiZWFjaCUyMGJhY2tncm91bmR8ZW58MHwwfDB8fHww")`;
     resentSearchElements.style.display = 'none';
   } else {
     resentSearchElements.style.display = 'block';
@@ -84,7 +84,7 @@ function checkWeather() {
         document.querySelector(".error").innerHTML = `
       <p>City not found</p>`;
         document.querySelector(".main-card").style.display = "none";
-        document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1508020268086-b96cf4f4bb2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHN1bnNldHxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60")`;
+        document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1421284621639-884f4129b61d?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE5fHxiZWFjaCUyMGJhY2tncm91bmR8ZW58MHwwfDB8fHww")`;
         searchBox.value = "";
       });
 // api for weekly weather
